@@ -1,0 +1,14 @@
+[
+  {
+    "make": "Ford",
+    "model": "Fiesta",
+    "year": "2002",
+    "price": 500
+  },
+  {
+    "make": "Honda",
+    "model": "Accura",
+    "year": "2010",
+    "price": 1000
+  }
+]
