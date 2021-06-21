@@ -1,17 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import CarListPage from './pages/CarListPage';
 import Header from './components/Header';
-import cars from './assets/cars.json';
 import Nav from './components/Nav';
 import Footer from './components/Footer'
 import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
