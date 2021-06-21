@@ -1,4 +1,4 @@
-import CarList from '../CarList'
+import CarList from '../components/CarList'
 import { render, screen } from '@testing-library/react'
 import cars from '../assets/cars.json'
 
