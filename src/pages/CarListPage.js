@@ -1,9 +1,13 @@
 import CarList from "../components/CarList"
+import SearchFilters from "../components/SearchFilters"
 import cars from "../assets/cars.json"
 
 const CarListPage = ()=> {
   return (
-    <CarList cars={cars}/>
+    <>
+      <SearchFilters />
+      <CarList cars={cars}/>
+    </>
   );
 }
 
