@@ -1,8 +1,7 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-size: 12px;
+  font-family: 'MontSerrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +9,29 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-family: 'Dosis';
+  font-weight: bold;
+  font-size: 60px;
+  color:#1D3354;
+}
+
+h2 {
+  font-family: 'Dosis';
+  font-size: 30px;
+  color:#1d3354;
+}
+
+h3 {
+  font-family: 'Montserrat';
+  font-style: italic;
+  color: #d64045;
+}
+
+h4 {
+  font-family: 'Dosis';
+  font-size: '14px';
+  color: #1d4045;
 }
