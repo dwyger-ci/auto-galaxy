@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Car from './Car';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <h3>Sub heading 3</h3>
         <h4>Sub heading 4</h4>
         <p>This is my text</p>
+        <Car />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
