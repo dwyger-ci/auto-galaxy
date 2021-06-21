@@ -12,5 +12,19 @@
     "model": "Accura",
     "year": "2010",
     "price": 1000
+  },
+  {
+    "key": "002",
+    "make": "Light Freighter",
+    "model": "Millennium Falcon",
+    "year": "56 BBY",
+    "price": 2474132337
+  },
+  {
+    "key": "003",
+    "make": "Modular Space Station",
+    "model": "International Space Station",
+    "year": "1998",
+    "price": 150000000000
   }
 ]
