@@ -1,9 +1,8 @@
 import { Card } from "react-bootstrap"
 
 const CarList = ({cars}) => {
-  console.log(cars)
   return <ul> 
-    {cars?.map(car => 
+    {cars.map(car => 
       <Card key={car.key}>
         <Card.Body>
           <Card.Title>{car.make}</Card.Title>

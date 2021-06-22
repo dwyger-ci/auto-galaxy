@@ -1,8 +1,10 @@
 import CarList from "../components/CarList"
 import SearchFilters from "../components/SearchFilters"
-import cars from "../assets/cars.json"
+import { useVehicles } from "../contexts/VehiclesContext"
 
 const CarListPage = ()=> {
+  const cars = useVehicles()
+  console.log(cars)
   return (
     <>
       <SearchFilters />
