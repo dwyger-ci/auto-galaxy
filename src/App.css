@@ -3,8 +3,9 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 45px;
   pointer-events: none;
+  float: left;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +36,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.AppNav {
+  height: 65px;
+  text-align: center;
+  margin: auto;
+  background: url(./assets/stars.png) no-repeat center center fixed;
+  background-size: cover;
+  padding: 8px;
 }

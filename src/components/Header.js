@@ -1,8 +1,8 @@
 import logo from "../assets/logo.png"
 
 const Header = () => {
-  return <div style={{height: "65px", width: "100%", textAlign: "center"}}>
-    <img src={logo} data-testid="header-logo" style={{width: "45px", float: "left", position: "relative", left: "20px"}} />
+  return <div className="AppNav">
+    <img src={logo} data-testid="header-logo" className="App-logo" alt="logo"/>
     <h1>Galaxy Auto</h1>
   </div>
 }

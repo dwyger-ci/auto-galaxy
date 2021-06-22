@@ -11,18 +11,19 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header/>
-        <Nav/>
-        <Switch>
-          <Route path="/" exact component={CarListPage}/>
-        </Switch>
-        <Footer/>
-      </div>
-    </Router>
+      <Router>
+        <div style={{padding: "2%"}}>
+          <Header/>
+          <Nav/>
+          <Switch>
+            <Route path="/" exact component={CarListPage}/>
+          </Switch>
+          <Footer/>
+        </div>
+      </Router>
   );
 }
 
