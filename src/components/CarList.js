@@ -3,8 +3,6 @@ import { Card } from "react-bootstrap"
 import { VehiclesContext } from "../contexts/VehiclesContext"
 
 const CarList = (cars) => {
-  const { loading } = useContext(VehiclesContext)
-  if (loading) return null
   console.log(cars)
   return <ul>
     {/* this is because objects  */}

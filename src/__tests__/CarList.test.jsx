@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import cars from '../assets/cars.json'
 
 it("should render",()=> {
-  render(<CarList/>)
+  render(<CarList cars={[]}/>)
 })
 
 it("should render an array of cars", () => {

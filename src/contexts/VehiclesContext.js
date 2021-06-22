@@ -5,17 +5,14 @@ const vehiclesApi="http://localhost:5000/api/vehicles"
 
 
 
-export const VehiclesContext = createContext([], true)
+export const VehiclesContext = createContext([])
 
 export const VehiclesProvider = ({ children }) => {
   console.log('at the beginning')
   const [ data, setCars ] = useState([])
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getVehicles().then(() => {
-      if (data) setLoading(false)
-    })
+    getVehicles()
   }, [])
 
   const getVehicles = async () => {
@@ -32,7 +29,7 @@ export const VehiclesProvider = ({ children }) => {
   // }, [])
   
   return (
-    <VehiclesContext.Provider value={{data, loading}}>
+    <VehiclesContext.Provider value={{data}}>
       {children}
     </VehiclesContext.Provider>
   )

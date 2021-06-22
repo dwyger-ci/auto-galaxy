@@ -4,11 +4,8 @@ import SearchFilters from "../components/SearchFilters"
 import { VehiclesContext } from "../contexts/VehiclesContext";
 
 const CarListPage = ()=> {
-  const {data, loading} = useContext(VehiclesContext)
+  const {data} = useContext(VehiclesContext)
   console.log(data)
-  if (loading) {
-    return null
-  }
   return (
     <>
       <SearchFilters />
