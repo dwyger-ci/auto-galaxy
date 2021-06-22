@@ -10,19 +10,24 @@ import {
   Route
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { VehiclesProvider } from './contexts/VehiclesContext';
 
-function App() {
+function App() {  
+  
   return (
-      <Router>
-        <div style={{padding: "2%"}}>
-          <Header/>
-          <Nav/>
-          <Switch>
+    <Router>
+      <div style={{padding: "2%"}}>
+        <Header/>
+        <Nav/>
+        <Switch>
+          <VehiclesProvider>
             <Route path="/" exact component={CarListPage}/>
-          </Switch>
-          <Footer/>
-        </div>
-      </Router>
+          </VehiclesProvider>
+        </Switch>
+        <Footer/>
+      </div>
+    </Router>
+    
   );
 }
 

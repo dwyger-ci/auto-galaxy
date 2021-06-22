@@ -1,14 +1,19 @@
+import { useContext } from "react";
 import CarList from "../components/CarList"
 import SearchFilters from "../components/SearchFilters"
-import { useVehicles } from "../contexts/VehiclesContext"
+import { VehiclesContext } from "../contexts/VehiclesContext";
 
 const CarListPage = ()=> {
-  const cars = useVehicles()
-  console.log(cars)
+  const {data, loading} = useContext(VehiclesContext)
+  console.log(data)
+  if (loading) {
+    return null
+  }
   return (
     <>
       <SearchFilters />
-      <CarList cars={cars}/>
+      {/* This is transforming data into object called cars.cars */}
+      <CarList cars={data} />
     </>
   );
 }
