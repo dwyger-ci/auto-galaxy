@@ -7,5 +7,5 @@ it("should render",()=> {
 
 it("render props", () => {
   render(<Nav/>)
-  expect(screen.getByText(/Nav/i)).toBeVisible();
+  expect(screen.getByRole("navigation")).toBeInTheDocument();
 })
