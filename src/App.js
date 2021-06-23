@@ -12,17 +12,19 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { VehiclesProvider } from './contexts/VehiclesContext';
 import CarPage from './pages/CarPage';
+import CartPage from './pages/CartPage';
 
 function App() {  
   
   return (
     <Router>
-      <div style={{padding: "2%"}}>
+      <div style={{padding: "2%", height: "100vh", overflow: "hidden"}}>
         <Header/>
         <Nav/>
         <Switch>
           <VehiclesProvider>
             <Route path="/" exact component={CarListPage}/>
+            <Route path="/cart" exact component={CartPage}/>
             <Route path="/:id" children={<CarPage />}/>
           </VehiclesProvider>
         </Switch>

@@ -62,3 +62,35 @@
   box-shadow: 10px 10px grey;
   cursor: pointer;
 }
+
+.filter-box {
+  background-color: lightgrey;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.filter-box h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.car-list {
+  overflow-y: scroll;
+  height: 35vh;
+}
+
+.navbar,
+.navbar-nav {
+  width: 100%;
+}
+
+.cart-link {
+  position: absolute;
+  right: 18px;
+  top: 3px;
+}
+
+.cart-link img {
+  height: 35px;
+}

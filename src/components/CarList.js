@@ -11,7 +11,7 @@ const CarList = (cars) => {
           <Card>
             <Card.Body>
               <Card.Title>{car.make}</Card.Title>
-              <Card.Text>{car.model}</Card.Text>
+              <Card.Text>{car.model} ({car.year})</Card.Text>
             </Card.Body>
           </Card>
         </Col>

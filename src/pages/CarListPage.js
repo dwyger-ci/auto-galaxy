@@ -10,7 +10,9 @@ const CarListPage = ()=> {
     <>
       <SearchFilters />
       {/* This is transforming data into object called cars.cars */}
-      <CarList cars={viewData} />
+      <div className="car-list">
+        <CarList cars={viewData} />
+      </div>
     </>
   );
 }

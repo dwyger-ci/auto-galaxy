@@ -9,7 +9,7 @@ export const VehiclesContext = createContext([])
 
 export const VehiclesProvider = ({ children }) => {
   console.log('at the beginning')
-  const [ filter, setFilter ] = useState({make: [], model: []})
+  const [ filter, setFilter ] = useState({make: [], model: [], yearMin: 2000, yearMax: 2050})
   const [ data, setCars ] = useState([])
   const [ viewData, setViewData ] = useState([])
 
@@ -35,7 +35,7 @@ export const VehiclesProvider = ({ children }) => {
     for (let model of filter.model) {
       models.push(model.label)
     }
-    setViewData(data.filter(x => makes.includes(x.make) || models.includes(x.model)))
+    setViewData(data.filter(x => (makes.includes(x.make) || models.includes(x.model)) && (x.year >= filter.yearMin && x.year <= filter.yearMax)))
   }, [filter])
 
   const getVehicles = async () => {
