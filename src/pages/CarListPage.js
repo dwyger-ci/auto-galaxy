@@ -4,13 +4,13 @@ import SearchFilters from "../components/SearchFilters"
 import { VehiclesContext } from "../contexts/VehiclesContext";
 
 const CarListPage = ()=> {
-  const {data} = useContext(VehiclesContext)
-  console.log(data)
+  const { viewData } = useContext(VehiclesContext)
+  console.log(viewData)
   return (
     <>
       <SearchFilters />
       {/* This is transforming data into object called cars.cars */}
-      <CarList cars={data} />
+      <CarList cars={viewData} />
     </>
   );
 }

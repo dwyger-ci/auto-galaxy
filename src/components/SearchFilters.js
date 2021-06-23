@@ -1,26 +1,27 @@
 import { Form,Row,Col } from "react-bootstrap"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Select from 'react-select'
+import { VehiclesContext } from "../contexts/VehiclesContext"
 
 const SearchFilters = () => {
   const onSelectedOptionsChange = (selectedArray, action) => {
     console.log(selectedArray);
     console.log(action.name);
-    const initialMakeState = {...filterBy.make};
-    const initialModelState = {...filterBy.model};
+    const initialMakeState = filter.make.length > 0 ? filter.make : [];
+    const initialModelState = filter.model.length > 0 ? filter.model : [];
     switch(action.name) {
       case "make":
-        setFilterBy({make: selectedArray, model: initialModelState})
+        setFilter({make: selectedArray, model: initialModelState})
         // console.log(filterBy)
         break
       case "model":
-        setFilterBy({make: initialMakeState, model: selectedArray})
+        setFilter({make: initialMakeState, model: selectedArray})
         break
       default:
         console.log("YOU FOOL")
         break
     }
-    console.log(filterBy)
+    console.log(filter)
   }
   const sliderChange = (e) => {
     console.log(e.target.name)
@@ -35,7 +36,8 @@ const SearchFilters = () => {
   const makes = [{ value: 'Ford', label: 'Ford' },{ value: 'Chevrolet', label: 'Chevrolet'}, {value: "Toyota", label: 'Toyota'}, {value: "Volkswagen", label: "Volkswagen" }]
   const [ value1, setValue1 ] = useState(2000);
   const [ value2, setValue2 ] = useState(2050);
-  const [ filterBy, setFilterBy ] = useState({make: [], model: [], yearMin: 2000, yearMax: 2050});
+  // const [ filterBy, setFilterBy ] = useState({make: [], model: []});
+  const { filter, setFilter } = useContext(VehiclesContext);
 
 
   return (

@@ -9,22 +9,46 @@ export const VehiclesContext = createContext([])
 
 export const VehiclesProvider = ({ children }) => {
   console.log('at the beginning')
+  const [ filter, setFilter ] = useState({make: [], model: []})
   const [ data, setCars ] = useState([])
+  const [ viewData, setViewData ] = useState([])
 
   useEffect(() => {
     getVehicles()
   }, [])
 
+  // useEffect(() => {
+  //   setViewData(data.filter(x => {
+  //     if (filter.make && filter.make.includes(x.make)) return true
+  //     // if (filter.model) filter.model.includes(x.model)
+  //     return false
+  //   }))
+  // }, [filter])
+
+  useEffect(() => {
+    console.log(filter)
+    let makes = []
+    let models = []
+    for (let make of filter.make) {
+      makes.push(make.label)
+    }
+    for (let model of filter.model) {
+      models.push(model.label)
+    }
+    setViewData(data.filter(x => makes.includes(x.make) || models.includes(x.model)))
+  }, [filter])
+
   const getVehicles = async () => {
     const vehicles = await axios(vehiclesApi)
     // console.log(vehicles)
     await setCars(vehicles.data)
+    await setViewData(vehicles.data)
     console.log('Heres the vehicles ' + vehicles.data[0].id)
     return
   }
   
   return (
-    <VehiclesContext.Provider value={{data}}>
+    <VehiclesContext.Provider value={{viewData, filter, setFilter}}>
       {children}
     </VehiclesContext.Provider>
   )
