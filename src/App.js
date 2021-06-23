@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { VehiclesProvider } from './contexts/VehiclesContext';
+import CarPage from './pages/CarPage';
 
 function App() {  
   
@@ -22,6 +23,7 @@ function App() {
         <Switch>
           <VehiclesProvider>
             <Route path="/" exact component={CarListPage}/>
+            <Route path="/:id" children={<CarPage />}/>
           </VehiclesProvider>
         </Switch>
         <Footer/>

@@ -1,5 +1,9 @@
-const Car = ({ make, model, year, price }) => {
-  return <div>Here's a car {make} {model} {year} {price}</div>
+const Car = (car) => {
+  console.log(car)
+  if (car) {
+    return <div>Here's a car {car.car.make} {car.car.model} {car.car.year} {car.car.price}</div>
+  }
+  return null
 }
 
 export default Car

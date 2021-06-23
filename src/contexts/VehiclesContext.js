@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 
 const vehiclesApi="http://localhost:5000/api/vehicles"
 
