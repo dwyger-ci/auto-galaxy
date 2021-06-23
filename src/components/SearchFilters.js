@@ -9,8 +9,8 @@ const SearchFilters = () => {
     console.log(action.name);
     const initialMakeState = filter.make.length > 0 ? filter.make : [];
     const initialModelState = filter.model.length > 0 ? filter.model : [];
-    const yearMin = filter.yearMin != 2000 ? filter.yearMin : 2000;
-    const yearMax = filter.yearMin != 2050 ? filter.yearMax : 2050;
+    const yearMin = filter.yearMin !== 2000 ? filter.yearMin : 2000;
+    const yearMax = filter.yearMin !== 2050 ? filter.yearMax : 2050;
     switch(action.name) {
       case "make":
         setFilter({make: selectedArray, model: initialModelState, yearMin: yearMin, yearMax: yearMax})

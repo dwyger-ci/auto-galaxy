@@ -12,6 +12,7 @@ export const VehiclesProvider = ({ children }) => {
   const [ filter, setFilter ] = useState({make: [], model: [], yearMin: 2000, yearMax: 2050})
   const [ data, setCars ] = useState([])
   const [ viewData, setViewData ] = useState([])
+  const [ cart, setCart ] = useState([])
 
   useEffect(() => {
     getVehicles()
@@ -48,7 +49,7 @@ export const VehiclesProvider = ({ children }) => {
   }
   
   return (
-    <VehiclesContext.Provider value={{viewData, filter, setFilter}}>
+    <VehiclesContext.Provider value={{viewData, filter, setFilter, cart, setCart}}>
       {children}
     </VehiclesContext.Provider>
   )
