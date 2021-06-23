@@ -1,12 +1,33 @@
 import { Form,Row,Col } from "react-bootstrap"
 import { useState } from "react"
+import Select from 'react-select'
 
 const SearchFilters = () => {
-  const onSelectedOptionsChange = () => {}
-  const models = ["Focus","Impala","Prius","Bug","M3","Commander","Millenium Falcon"]
-  const makes = ["Ford","Chevrolet","Toyota","Volkswagen","BMW","Kia","Jeep","Spacefreighter"]
+  const onSelectedOptionsChange = (e) => {
+    switch(e.target.name) {
+      case "make":
+        console.log(e.target.value)
+        break
+      case "model":
+        console.log(e.target.value)
+        break
+      case "year-min":
+        console.log(e.target.value)
+        break 
+      case "year-max":
+        console.log(e.target.value)
+        break
+      default:
+        console.log("YOU FOOL")
+        break   
+    }
+  }
+  const models = [{ value: 'Focus', label: 'Focus' }, { value: "Impala", label: "Impala"}, {value: "Prius", label: "Prius"}]
+  const makes = [{ value: 'Ford', label: 'Ford' },{ value: 'Chevrolet', label: 'Chevrolet'}, {value: "Toyota", label: 'Toyota'}, {value: "Volkswagen", label: "Volkswagen" }]
   const [ value1, setValue1 ] = useState(2000);
   const [ value2, setValue2 ] = useState(2050);
+  const [ filterBy, setFilterBy ] = useState({make: [], model: [], year: {min: 0, max: 2050}});
+
   return (
     <>
       <div>
@@ -14,16 +35,23 @@ const SearchFilters = () => {
         <Form>
           <Form.Group>
             <Form.Label>Make</Form.Label>
-            <Form.Control as="select" multiple value={makes} onChange={onSelectedOptionsChange}>
+            <Select
+              isMulti
+              name="make"
+              options={makes}
+              className="basic-multi-select"
+              classNamePrefix="select"
+            />
+            {/* <Form.Control name="make" as="select" multiple value={makes} onChange={onSelectedOptionsChange}>
               {makes.map((option,index) => (
                 <option key={index} value={option}>
                   {option.name}
                 </option>
               ))}
-            </Form.Control>
+            </Form.Control> */}
             <br />
             <Form.Label>Model</Form.Label>
-            <Form.Control as="select" multiple value={models} onChange={onSelectedOptionsChange}>
+            <Form.Control name="model" as="select" multiple value={models} onChange={onSelectedOptionsChange}>
               {models.map((option,index) => (
                 <option key={index} value={option}>
                   {option.name}
@@ -36,7 +64,7 @@ const SearchFilters = () => {
             <Form.Group as={Row}>
               <Col xs="6">
                 <span>Min: {value1}</span>
-                <Form.Control type="range"
+                <Form.Control name="year-min" type="range"
                   value={value1}
                   onChange={e => {
                     if (e.target.value > value2) setValue2(e.target.value)
@@ -47,7 +75,7 @@ const SearchFilters = () => {
               </Col>
               <Col xs="6">
                 <span>Max: {value2}</span>
-                <Form.Control type="range"
+                <Form.Control name="year-max" type="range"
                   value={value2}
                   onChange={e => {
                     if (e.target.value < value1) setValue1(e.target.value)
