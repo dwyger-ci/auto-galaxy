@@ -3,9 +3,10 @@
 }
 
 .App-logo {
-  height: 45px;
+  height: 75px;
   pointer-events: none;
   float: left;
+  margin-top: 30px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -39,12 +40,13 @@
 }
 
 .AppNav {
-  height: 65px;
+  height: 205px;
   text-align: center;
   margin: auto;
   background: url(./assets/stars.png) no-repeat center center fixed;
   background-size: cover;
-  padding: 8px;
+  padding: 30px;
+  margin-bottom: 15px;
 }
 
 .card {

@@ -1,37 +1,40 @@
 body {
   margin: 0;
   font-size: 12px;
-  font-family: 'MontSerrat', sans-serif;
+  font-family: "MontSerrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 h1 {
-  font-family: 'Dosis';
-  font-weight: bold;
-  font-size: 60px;
-  color:#1D3354;
+  font-family: "Dosis";
+  font-weight: bolder;
+  font-size: 85px !important;
+  color: black;
+  text-shadow: -1px 1px 0 gold, 1px 1px 0 gold, 1px -1px 0 gold,
+    -1px -1px 0 gold;
+  transform: scaleY(2.1);
 }
 
 h2 {
-  font-family: 'Dosis';
+  font-family: "Dosis";
   font-size: 30px;
-  color:#1d3354;
+  color: #1d3354;
 }
 
 h3 {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: italic;
   color: #d64045;
 }
 
 h4 {
-  font-family: 'Dosis';
-  font-size: '14px';
+  font-family: "Dosis";
+  font-size: "14px";
   color: #1d4045;
 }
