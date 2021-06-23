@@ -22,11 +22,6 @@ export const VehiclesProvider = ({ children }) => {
     console.log('Heres the vehicles ' + vehicles.data[0].id)
     return
   }
-
-  // useEffect(() => {
-  //   console.log('here')
-    
-  // }, [])
   
   return (
     <VehiclesContext.Provider value={{data}}>

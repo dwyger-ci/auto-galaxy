@@ -3,7 +3,7 @@ import { useState } from "react"
 
 const SearchFilters = () => {
   const onSelectedOptionsChange = () => {}
-  const options = [{name: "optionName", value: "optionValue"},{name: "option2Name",value: "option2Value"}]
+  const models = ["Focus","Impala","Prius","Bug","M3","Commander","Millenium Falcon"]
   const makes = ["Ford","Chevrolet","Toyota","Volkswagen","BMW","Kia","Jeep","Spacefreighter"]
   const [ value1, setValue1 ] = useState(2000);
   const [ value2, setValue2 ] = useState(2050);
@@ -23,9 +23,9 @@ const SearchFilters = () => {
             </Form.Control>
             <br />
             <Form.Label>Model</Form.Label>
-            <Form.Control as="select" multiple value={options} onChange={onSelectedOptionsChange}>
-              {options.map(option => (
-                <option key={option.name} value={option.value}>
+            <Form.Control as="select" multiple value={models} onChange={onSelectedOptionsChange}>
+              {models.map((option,index) => (
+                <option key={index} value={option}>
                   {option.name}
                 </option>
               ))}
