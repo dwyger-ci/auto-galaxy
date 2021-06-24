@@ -71,6 +71,7 @@ const SearchFilters = () => {
                       className="basic-multi-select"
                       classNamePrefix="select"
                       onChange={onSelectedOptionsChange}
+                      data-testid="makes-select"
                     />
                   </Col>
                   <Col m={3}>
@@ -82,6 +83,7 @@ const SearchFilters = () => {
                       className="basic-multi-select"
                       classNamePrefix="select"
                       onChange={onSelectedOptionsChange}
+                      data-testid="models-select"
                     />
                   </Col>
                 </Row>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import Car from "../components/Car";
 const vehicleApi="http://localhost:5000/api/vehicles/"
 

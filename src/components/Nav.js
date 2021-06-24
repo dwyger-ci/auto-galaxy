@@ -9,7 +9,7 @@ const NavPub = () => {
       <Navbar id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link className="cart-link" href="/cart"><img src={shoppingCart} alt="cart img" /></Nav.Link>
+          <Nav.Link className="cart-link" href="/cart" data-testid="cart-link"><img src={shoppingCart} alt="cart img" /></Nav.Link>
         </Nav>
       </Navbar>
     </Navbar>

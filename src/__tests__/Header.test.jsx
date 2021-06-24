@@ -7,6 +7,6 @@ it("should render",()=> {
 
 it("render props", () => {
   render(<Header/>)
-  expect(screen.getByText(/Galaxy Auto/i)).toBeVisible();
+  expect(screen.getByText(/Galactic Auto/i)).toBeVisible();
   expect(screen.getByTestId('header-logo')).toBeVisible();
 })
