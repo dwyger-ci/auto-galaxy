@@ -1,6 +1,7 @@
 import CarList from '../components/CarList'
 import { render, screen, fireEvent } from '@testing-library/react'
 import cars from '../assets/cars.json'
+import { FixedSizeList } from 'react-window'
 
 
 jest.mock('react-router', () => ({

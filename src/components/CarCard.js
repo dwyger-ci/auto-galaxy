@@ -5,9 +5,9 @@ import { VehiclesContext } from "../contexts/VehiclesContext"
 const CarCard = (singleCar) => {
   const { viewData, cart, setCart } = useContext(VehiclesContext)
   const [car, setCar] = useState()
+  console.log("single car passed in is " + singleCar)
 
   useEffect(() => {
-    setCar(singleCar)
     console.log("re-render because this car changed!")
   }, [car])
 
@@ -39,14 +39,14 @@ const CarCard = (singleCar) => {
 
   return <Card>
       <Card.Body>
-        <Card.Title>{car.make}</Card.Title>
-        <Card.Text>{car.model} ({car.year}) {car.available.toString()}</Card.Text>
-        {console.log(car.available)}
-        {(car.available && !cart.some(item => item.id === car.id)) ? 
-        <Button name={car.id} title="Add to Cart" onClick={cartClick}>Add to Cart</Button> :
+        {console.log("SingleCar: " + singleCar.make)}
+        <Card.Title>{singleCar.make}</Card.Title>
+        <Card.Text>{singleCar.model} ({singleCar.year})</Card.Text>
+        {(singleCar.available && !singleCar.some(item => item.id === singleCar.id)) ? 
+        <Button name={singleCar.id} title="Add to Cart" onClick={cartClick}>Add to Cart</Button> :
         ''}
-      {cart.some(item => item.id === car.id) ? 
-        <Button name={car.id} title="Remove from Cart" onClick={cartClick}>Remove from Cart</Button> :
+      {cart.some(item => item.id === singleCar.id) ? 
+        <Button name={singleCar.id} title="Remove from Cart" onClick={cartClick}>Remove from Cart</Button> :
         ''}
       </Card.Body>
     </Card>
