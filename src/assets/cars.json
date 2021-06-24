@@ -1,6 +1,7 @@
 [
   {
     "id": "000",
+    "available": true,
     "make": "Ford",
     "model": "Fiesta",
     "year": "2002",
@@ -8,6 +9,7 @@
   },
   {
     "id": "001",
+    "available": true,
     "make": "Honda",
     "model": "Accura",
     "year": "2010",
@@ -15,6 +17,7 @@
   },
   {
     "id": "002",
+    "available": false,
     "make": "Light Freighter",
     "model": "Millennium Falcon",
     "year": "56 BBY",
@@ -22,6 +25,7 @@
   },
   {
     "id": "003",
+    "available": false,
     "make": "Modular Space Station",
     "model": "International Space Station",
     "year": "1998",
