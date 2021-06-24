@@ -1,7 +1,11 @@
 import { Form,Row,Col } from "react-bootstrap"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Select from 'react-select'
 import { VehiclesContext } from "../contexts/VehiclesContext"
+import axios from 'axios'
+const modelsApi ="http://localhost:5000/api/models"
+const makesApi ="http://localhost:5000/api/makes"
+
 
 const SearchFilters = () => {
   const onSelectedOptionsChange = (selectedArray, action) => {
@@ -46,65 +50,69 @@ const SearchFilters = () => {
           break
     }
   }
-  const models = [{ value: 'Focus', label: 'Focus' }, { value: "Impala", label: "Impala"}, {value: "Prius", label: "Prius"}]
-  const makes = [{ value: 'Ford', label: 'Ford' },{ value: 'Chevrolet', label: 'Chevrolet'}, {value: "Toyota", label: 'Toyota'}, {value: "Volkswagen", label: "Volkswagen" }]
-  const [ value1, setValue1 ] = useState(2000);
-  const [ value2, setValue2 ] = useState(2050);
-  // const [ filterBy, setFilterBy ] = useState({make: [], model: []});
-  const { filter, setFilter } = useContext(VehiclesContext);
-
+  
+  const { filter, setFilter, models, makes } = useContext(VehiclesContext);
 
   return (
     <>
       <div className="filter-box">
         <h2>Vehicle Filters</h2>
         <Form>
-          <Form.Group as={Row}>
-            <Col m="6">
-              <Form.Label>Make</Form.Label>
-              <Select
-                isMulti
-                name="make"
-                options={makes}
-                className="basic-multi-select"
-                classNamePrefix="select"
-                onChange={onSelectedOptionsChange}
-              />
+          <Row>
+            <Col m={6}>
+              <Form.Group>
+                <Row>
+                  <Col m={3}>
+                    <Form.Label>Make</Form.Label>
+                    <Select
+                      isMulti
+                      name="make"
+                      options={makes}
+                      className="basic-multi-select"
+                      classNamePrefix="select"
+                      onChange={onSelectedOptionsChange}
+                    />
+                  </Col>
+                  <Col m={3}>
+                    <Form.Label>Model</Form.Label>
+                    <Select
+                      isMulti
+                      name="model"
+                      options={models}
+                      className="basic-multi-select"
+                      classNamePrefix="select"
+                      onChange={onSelectedOptionsChange}
+                    />
+                  </Col>
+                </Row>
+              </Form.Group>
             </Col>
-            <Col m="6">
-              <Form.Label>Model</Form.Label>
-              <Select
-                isMulti
-                name="model"
-                options={models}
-                className="basic-multi-select"
-                classNamePrefix="select"
-                onChange={onSelectedOptionsChange}
-              />
+            <Col m={6}>
+              <Form.Label>Year</Form.Label>
+              <Form.Group>
+                <Row>
+                  <Col m={6}>
+                    <span>Min: {filter.yearMin}</span>
+                    <Form.Control name="year-min" type="range"
+                      value={filter.yearMin}
+                      onChange={sliderChange}
+                      min={2000}
+                      max={2050}
+                    />
+                  </Col>
+                  <Col m={6}>
+                    <span>Max: {filter.yearMax}</span>
+                    <Form.Control name="year-max" type="range"
+                      value={filter.yearMax}
+                      onChange={sliderChange}
+                      min={2000}
+                      max={2050}
+                    />
+                  </Col>
+                </Row>
+              </Form.Group>
             </Col>
-          </Form.Group>
-          <br />
-          <Form.Label>Year</Form.Label>
-          <Form.Group as={Row}>
-            <Col xs="6">
-              <span>Min: {filter.yearMin}</span>
-              <Form.Control name="year-min" type="range"
-                value={filter.yearMin}
-                onChange={sliderChange}
-                min={2000}
-                max={2050}
-              />
-            </Col>
-            <Col xs="6">
-              <span>Max: {filter.yearMax}</span>
-              <Form.Control name="year-max" type="range"
-                value={filter.yearMax}
-                onChange={sliderChange}
-                min={2000}
-                max={2050}
-              />
-            </Col>
-          </Form.Group>
+          </Row>
         </Form>
       </div>
     </>

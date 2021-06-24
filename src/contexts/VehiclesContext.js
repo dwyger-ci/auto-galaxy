@@ -2,6 +2,8 @@ import axios from 'axios'
 import { createContext, useEffect, useState } from 'react'
 
 const vehiclesApi="http://localhost:5000/api/vehicles"
+const modelsApi ="http://localhost:5000/api/models"
+const makesApi ="http://localhost:5000/api/makes"
 
 
 
@@ -13,9 +15,12 @@ export const VehiclesProvider = ({ children }) => {
   const [ data, setCars ] = useState([])
   const [ viewData, setViewData ] = useState([])
   const [ cart, setCart ] = useState([])
+  const [ models, setModels ] = useState([])
+  const [ makes, setMakes ] = useState([])
 
   useEffect(() => {
     getVehicles()
+    getFilters()
   }, [])
 
   // useEffect(() => {
@@ -28,15 +33,24 @@ export const VehiclesProvider = ({ children }) => {
 
   useEffect(() => {
     console.log(filter)
-    let makes = []
-    let models = []
+    let makeFilters = []
+    let modelFilters = []
     for (let make of filter.make) {
-      makes.push(make.label)
+      makeFilters.push(make.label)
     }
     for (let model of filter.model) {
-      models.push(model.label)
+      modelFilters.push(model.label)
     }
-    setViewData(data.filter(x => (makes.includes(x.make) || models.includes(x.model)) && (x.year >= filter.yearMin && x.year <= filter.yearMax)))
+    if (makeFilters.length === 0 && modelFilters.length === 0) {
+      makeFilters = makes
+      modelFilters = models
+    }
+    console.log(makeFilters)
+    console.log(modelFilters)
+    console.log(data)
+    const filteredData = data.filter(x => (makeFilters.includes(x.make) || modelFilters.includes(x.model)) && (x.year >= filter.yearMin && x.year <= filter.yearMax))
+    console.log('For Kurtis ' + filteredData)
+    setViewData(filteredData.length > 0 ? filteredData : data)
   }, [filter])
 
   const getVehicles = async () => {
@@ -47,9 +61,17 @@ export const VehiclesProvider = ({ children }) => {
     console.log('Heres the vehicles ' + vehicles.data[0].id)
     return
   }
+
+  const getFilters = async () => {
+    const models = await axios(modelsApi)
+    const makes = await axios(makesApi)
+    // console.log(vehicles)
+    await setModels(models.data)
+    await setMakes(makes.data)
+  }
   
   return (
-    <VehiclesContext.Provider value={{viewData, filter, setFilter, cart, setCart}}>
+    <VehiclesContext.Provider value={{viewData, filter, setFilter, cart, setCart, models, makes}}>
       {children}
     </VehiclesContext.Provider>
   )
