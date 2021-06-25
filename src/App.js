@@ -17,21 +17,22 @@ import CartPage from './pages/CartPage';
 function App() {  
   
   return (
-    <Router>
-      <div style={{padding: "2%", height: "100vh", overflow: "hidden"}}>
-        <Header/>
-        <Nav/>
-        <Switch>
-          <VehiclesProvider>
-            <Route path="/" exact component={CarListPage}/>
-            <Route path="/cart" exact component={CartPage}/>
-            <Route path="/:id" children={<CarPage />}/>
-          </VehiclesProvider>
-        </Switch>
-        <Footer/>
-      </div>
-    </Router>
-    
+    <VehiclesProvider>
+      <Router>
+        <div style={{padding: "2%", height: "100vh", overflow: "hidden"}}>
+          <Header/>
+          <Nav/>
+          <Switch>
+            
+              <Route path="/" exact component={CarListPage}/>
+              <Route path="/cart" exact component={CartPage}/>
+              <Route path="/:id" children={<CarPage />}/>
+            
+          </Switch>
+          <Footer/>
+        </div>
+      </Router>
+    </VehiclesProvider>
   );
 }
 

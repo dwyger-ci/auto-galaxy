@@ -6,13 +6,12 @@ const CarCard = ({singleCar}) => {
   const { viewData, cart, setCart } = useContext(VehiclesContext)
   const [car, setCar] = useState()
 
-  useEffect(() => {
-  }, [car])
+  // useEffect(() => {
+  // }, [car])
 
   const modifyCarStatus = async (id) => {
     const returnedCar = viewData.find(element => element.id == id)
     setCar(returnedCar)
-    console.log('Heres the car youre adding/removing from cart ' + returnedCar.id + ': ' + returnedCar.available)
     if(returnedCar.available) {
       const newCart = cart.filter(x => true)
       newCart.push(returnedCar)

@@ -10,20 +10,17 @@ const CarPage = () => {
   if (id === undefined) { 
     id = 'ede75bf3-b8e3-415d-9eb2-ff9071b16e31'
   }
-  console.log(id)
-
+  
   useEffect(() => {
     getCar()
   }, [])
 
   const getCar = async () => {
 
-    console.log(vehicleApi + id)
     const returnedCar = await axios.get(vehicleApi + id)
-    // console.log(vehicles)
+
     const json = returnedCar.data
     await setCar(returnedCar.data)
-    console.log('Heres the car ' + json.id)
     return
   }
 

@@ -9,8 +9,6 @@ const makesApi ="http://localhost:5000/api/makes"
 
 const SearchFilters = () => {
   const onSelectedOptionsChange = (selectedArray, action) => {
-    console.log(selectedArray);
-    console.log(action.name);
     const initialMakeState = filter.make.length > 0 ? filter.make : [];
     const initialModelState = filter.model.length > 0 ? filter.model : [];
     const yearMin = filter.yearMin !== 2000 ? filter.yearMin : 2000;
@@ -18,7 +16,7 @@ const SearchFilters = () => {
     switch(action.name) {
       case "make":
         setFilter({make: selectedArray, model: initialModelState, yearMin: yearMin, yearMax: yearMax})
-        // console.log(filterBy)
+
         break
       case "model":
         setFilter({make: initialMakeState, model: selectedArray, yearMin: yearMin, yearMax: yearMax})
@@ -27,11 +25,8 @@ const SearchFilters = () => {
         console.log("YOU FOOL")
         break
     }
-    console.log(filter)
   }
   const sliderChange = (e) => {
-    console.log(e.target.name)
-    console.log(e.target.value)
     const initialMakeState = filter.make.length > 0 ? filter.make : [];
     const initialModelState = filter.model.length > 0 ? filter.model : [];
     let yearMin = filter.yearMin !== 2000 ? filter.yearMin : 2000;
