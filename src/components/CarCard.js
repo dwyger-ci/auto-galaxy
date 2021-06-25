@@ -27,8 +27,6 @@ const CarCard = ({singleCar}) => {
       setCar(returnedCar)
       return
     }
-    console.log("CAR IS NOT FOR SALE")
-    return
   }
 
   const cartClick = (e) => {

@@ -1,11 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CarList from "../components/CarList"
 import SearchFilters from "../components/SearchFilters"
 import { VehiclesContext } from "../contexts/VehiclesContext";
 
+
+
 const CarListPage = ()=> {
   const { viewData } = useContext(VehiclesContext)
   console.log(viewData)
+  useEffect(() => {
+    console.log("we re-rendered")
+  }, [])
   return (
     <>
       <SearchFilters />
