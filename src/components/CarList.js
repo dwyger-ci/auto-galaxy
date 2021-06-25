@@ -10,7 +10,7 @@ const CarList = (cars) => {
     <Row>
       {cars.cars.map(car =>
         <Col key={car.id} sm={12} md={4} onClick={() => push(`/${car.id}`)}>
-          <CarCard car />
+          <CarCard singleCar={car} />
         </Col>
       )}
     </Row>
