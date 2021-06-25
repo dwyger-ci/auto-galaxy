@@ -6,7 +6,10 @@ const vehicleApi="http://localhost:5000/api/vehicles/"
 
 const CarPage = () => {
   const [car, setCar] = useState()
-  const { id } = useParams();
+  let { id } = useParams();
+  if (id === undefined) { 
+    id = 'ede75bf3-b8e3-415d-9eb2-ff9071b16e31'
+  }
   console.log(id)
 
   useEffect(() => {
@@ -16,7 +19,7 @@ const CarPage = () => {
   const getCar = async () => {
 
     console.log(vehicleApi + id)
-    const returnedCar = await axios(vehicleApi + id)
+    const returnedCar = await axios.get(vehicleApi + id)
     // console.log(vehicles)
     const json = returnedCar.data
     await setCar(returnedCar.data)
